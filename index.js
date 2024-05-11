@@ -1,8 +1,11 @@
 const inquirer = require(`inquirer`);
 // const document = require(`./lib/document`);
-const {Shapes} = require(`./lib/shapes`);
 const {Logo} = require(`./lib/text`);
 // const fs = require(`fs`);
+
+const {Circle} = require(`./lib/circle`);
+const {Triangle} = require(`./lib/triangle`);
+const {Square} = require(`./lib/square`);
 
 inquirer
   .prompt ([
@@ -21,7 +24,7 @@ inquirer
     {
       type: `list`,
       message: `Choose which shape the logo will be:`,
-      choices: [`Circle`, `Eclispe`,`Square`, `Rectangle`, `Star`],
+      choices: [`Circle`, `Eclispe`,`Square`, `Rectangle`, `Triangle`,`Star`],
       name: `logoShape`,
     },
 
@@ -38,9 +41,22 @@ inquirer
     // console.log(typeof(response.logoShape));
     // console.log(response.logoShapeColour);
 
-    const logo = Shapes(response.logoShape, response.logoShapeColour);
-    console.log(logo);
+    if(response.logoShape === `Circle`) {
+      let shape = new Circle(response.logoShapeColour);
+      console.log(shape.render());
+      console.log(shape.colour);
 
-    const text = Logo(response.logoText, response.logoTextColour);
-    console.log(text);
+    } else if(response.logoShape === `Square`) {
+      let shape = new Square(response.logoShapeColour);
+      console.log(shape.render());
+      console.log(shape.colour);
+      
+    } else if(response.logoShape === `Triangle`) {
+      console.log(shape.render());
+      console.log(shape.colour);
+      let shape = new Triangle(response.logoShapeColour);
+    }
+
+
+
   });
