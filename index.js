@@ -52,9 +52,9 @@ inquirer
       console.log(shape.colour);
       
     } else if(response.logoShape === `Triangle`) {
+      let shape = new Triangle(response.logoShapeColour);
       console.log(shape.render());
       console.log(shape.colour);
-      let shape = new Triangle(response.logoShapeColour);
     }
 
 
