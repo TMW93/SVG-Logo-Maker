@@ -1,4 +1,4 @@
-const Triangle = require(`../lib/triangle`);
+const {Triangle} = require(`../lib/triangle`);
 
 describe(`Triangle shape test`, () => {
   describe(`Checking render fucntion`, () => {
