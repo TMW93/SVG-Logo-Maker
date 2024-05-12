@@ -1,11 +1,12 @@
 const inquirer = require(`inquirer`);
-// const document = require(`./lib/document`);
-const {Logo} = require(`./lib/text`);
-// const fs = require(`fs`);
+const {writeFile} = require(`fs/promises`);
+const {join} = require('path');
 
+const {generateLogo} = require(`./lib/document`);
 const {Circle} = require(`./lib/circle`);
 const {Triangle} = require(`./lib/triangle`);
 const {Square} = require(`./lib/square`);
+const {Logo} = require(`./lib/text`);
 
 inquirer
   .prompt ([
@@ -41,22 +42,22 @@ inquirer
     // console.log(typeof(response.logoShape));
     // console.log(response.logoShapeColour);
 
+    let shape = ``;
+    let logo = new Logo(response.logoText, response.logoTextColour);
+
     if(response.logoShape === `Circle`) {
-      let shape = new Circle(response.logoShapeColour);
-      console.log(shape.render());
-      console.log(shape.colour);
+      shape = new Circle(response.logoShapeColour);
 
     } else if(response.logoShape === `Square`) {
-      let shape = new Square(response.logoShapeColour);
-      console.log(shape.render());
-      console.log(shape.colour);
+      shape = new Square(response.logoShapeColour);
       
     } else if(response.logoShape === `Triangle`) {
-      let shape = new Triangle(response.logoShapeColour);
-      console.log(shape.render());
-      console.log(shape.colour);
+      shape = new Triangle(response.logoShapeColour);
     }
 
-
+    return writeFile(
+      join(__dirname, `.`, `examples`, `logo.svg`),
+      generateLogo(shape.render(), logo.render())
+    );
 
   });
