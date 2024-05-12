@@ -5,7 +5,7 @@ describe(`Rectangle shape test`, () => {
     it(`render method should return a string for the corresponding SVG file with the given shape color.`, () => {
       const colour = `white`;
       const shape = new Rectangle(colour);
-      expect(shape.render()).toEqual(`<rect x="20%" y="8" width="250" height="180" fill="white"/>`);
+      expect(shape.render()).toEqual(`<rect x="10%" y="4%" width="250" height="180" fill="white"/>`);
     })
   })
 })

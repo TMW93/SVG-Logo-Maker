@@ -5,7 +5,7 @@ describe(`Eclipse shape test`, () => {
     it(`render method should return a string for the corresponding SVG file with the given shape color.`, () => {
       const colour = `white`;
       const shape = new Eclipse(colour);
-      expect(shape.render()).toEqual(`<ellipse cx="50%" cy="60%" rx="250" ry="100" fill="white"/>`);
+      expect(shape.render()).toEqual(`<ellipse cx="50%" cy="52%" rx="150" ry="80" fill="white"/>`);
     })
   })
 })

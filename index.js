@@ -6,6 +6,8 @@ const {generateLogo} = require(`./lib/document`);
 const {Circle} = require(`./lib/circle`);
 const {Triangle} = require(`./lib/triangle`);
 const {Square} = require(`./lib/square`);
+const {Eclipse} = require(`./lib/eclipse`);
+const {Rectangle} = require(`./lib/rectangle`);
 const {Logo} = require(`./lib/text`);
 
 inquirer
@@ -25,7 +27,7 @@ inquirer
     {
       type: `list`,
       message: `Choose which shape the logo will be:`,
-      choices: [`Circle`, `Eclispe`,`Square`, `Rectangle`, `Triangle`,`Star`],
+      choices: [`Circle`, `Eclipse`,`Square`, `Rectangle`, `Triangle`,`Star`],
       name: `logoShape`,
     },
 
@@ -53,6 +55,12 @@ inquirer
       
     } else if(response.logoShape === `Triangle`) {
       shape = new Triangle(response.logoShapeColour);
+
+    } else if(response.logoShape === `Eclipse`) {
+      shape = new Eclipse(response.logoShapeColour);
+
+    } else if(response.logoShape === `Rectangle`) {
+      shape = new Rectangle(response.logoShapeColour);
     }
 
     return writeFile(
