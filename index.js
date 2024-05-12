@@ -38,14 +38,9 @@ inquirer
     },
   ])
   .then((response) => {
-    // console.log(`This is what you chose:`);
-    // console.log(response.logoText);
-    // console.log(response.logoTextColour);
-    // console.log(typeof(response.logoShape));
-    // console.log(response.logoShapeColour);
 
     let shape = ``;
-    let logo = new Logo(response.logoText, response.logoTextColour);
+    let logo = new Logo(response.logoText, response.logoTextColour, response.logoShape);
 
     if(response.logoShape === `Circle`) {
       shape = new Circle(response.logoShapeColour);
