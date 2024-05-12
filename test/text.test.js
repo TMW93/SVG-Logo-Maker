@@ -1,7 +1,7 @@
 const {Logo} = require(`../lib/text`);
 
 describe(`Text test`, () => {
-  describe(`Checking render fucntion`, () => {
+  describe(`Checking render function`, () => {
     it(`render method should return a string for the corresponding SVG file with the given shape color.`, () => {
       const colour = `red`;
       const text = `My Logo`
