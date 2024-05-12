@@ -63,4 +63,9 @@ inquirer
       generateLogo(shape.render(), logo.render())
     );
 
+  })
+  .then(() => console.log('Created logo.svg'))
+  .catch((err) => {
+    console.log(err);
+    console.log('Oops. Something went wrong.');
   });
