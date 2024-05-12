@@ -27,7 +27,7 @@ inquirer
     {
       type: `list`,
       message: `Choose which shape the logo will be:`,
-      choices: [`Circle`, `Eclipse`,`Square`, `Rectangle`, `Triangle`,`Star`],
+      choices: [`Circle`, `Eclipse`,`Square`, `Rectangle`, `Triangle`],
       name: `logoShape`,
     },
 
