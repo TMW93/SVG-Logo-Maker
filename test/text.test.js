@@ -6,7 +6,7 @@ describe(`Text test`, () => {
       const colour = `red`;
       const text = `My Logo`
       const logo = new Logo(text, colour);
-      expect(logo.render()).toEqual(`<text x="150" y="125" font-size="60" text-anchor="middle" fill="red">My Logo</text>`);
+      expect(logo.render()).toEqual(`<text x="50%" y="60%" font-size="50" text-anchor="middle" fill="red">My Logo</text>`);
     })
   })
 })

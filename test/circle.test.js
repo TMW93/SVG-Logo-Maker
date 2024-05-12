@@ -5,7 +5,7 @@ describe(`Circle shape test`, () => {
     it(`render method should return a string for the corresponding SVG file with the given shape color.`, () => {
       const colour = `green`;
       const shape = new Circle(colour);
-      expect(shape.render()).toEqual(`<circle cx="25" cy="75" r="20" fill="green"/>`);
+      expect(shape.render()).toEqual(`<circle cx="150" cy="100" r="100" fill="green"/>`);
     })
   })
 })
