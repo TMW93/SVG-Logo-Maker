@@ -16,6 +16,7 @@ Install the required modules with npm i.
 
 ## Usage
 Run node index.js and follow the prompts. The SVG file should be created in the examples folder.
+- Here is a video demo on how the project should be used: [Demo] (https://drive.google.com/file/d/1alFZ7mCq_z6Nq4sW72_jesELKqLiyrC_/view)
 
 ## Contribution Guidelines
 N/A
