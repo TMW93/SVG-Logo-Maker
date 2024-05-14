@@ -39,32 +39,36 @@ inquirer
   ])
   .then((response) => {
 
-    let shape = ``;
-    let logo = new Logo(response.logoText, response.logoTextColour, response.logoShape);
+    if(response.logoText === `` || response.logoTextColour === `` || response.logoShapeColour === ``) {
+      console.log(`All prompts must be filled.`);
 
-    if(response.logoShape === `Circle`) {
-      shape = new Circle(response.logoShapeColour);
-
-    } else if(response.logoShape === `Square`) {
-      shape = new Square(response.logoShapeColour);
-      
-    } else if(response.logoShape === `Triangle`) {
-      shape = new Triangle(response.logoShapeColour);
-
-    } else if(response.logoShape === `Eclipse`) {
-      shape = new Eclipse(response.logoShapeColour);
-
-    } else if(response.logoShape === `Rectangle`) {
-      shape = new Rectangle(response.logoShapeColour);
+    } else {
+      let shape = ``;
+      let logo = new Logo(response.logoText, response.logoTextColour, response.logoShape);
+  
+      if(response.logoShape === `Circle`) {
+        shape = new Circle(response.logoShapeColour);
+  
+      } else if(response.logoShape === `Square`) {
+        shape = new Square(response.logoShapeColour);
+        
+      } else if(response.logoShape === `Triangle`) {
+        shape = new Triangle(response.logoShapeColour);
+  
+      } else if(response.logoShape === `Eclipse`) {
+        shape = new Eclipse(response.logoShapeColour);
+  
+      } else if(response.logoShape === `Rectangle`) {
+        shape = new Rectangle(response.logoShapeColour);
+      }
+  
+      return writeFile(
+        join(__dirname, `.`, `examples`, `logo.svg`),
+        generateLogo(shape.render(), logo.render())
+      );
     }
 
-    return writeFile(
-      join(__dirname, `.`, `examples`, `logo.svg`),
-      generateLogo(shape.render(), logo.render())
-    );
-
   })
-  .then(() => console.log('Created logo.svg'))
   .catch((err) => {
     console.log(err);
     console.log('Oops. Something went wrong.');
